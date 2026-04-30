@@ -15,7 +15,7 @@ class Todo(db.Model):
     complete = db.Column(db.Boolean)
 
 
-@app.route("/")
+@app.route("/", methods=["GET"])
 def home():
     todo_list = Todo.query.all()
     return render_template("base.html", todo_list=todo_list)
